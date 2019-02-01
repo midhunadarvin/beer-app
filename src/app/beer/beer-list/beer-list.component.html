@@ -1,4 +1,1 @@
-<app-beer-list-item></app-beer-list-item>
-<app-beer-list-item></app-beer-list-item>
-<app-beer-list-item></app-beer-list-item>
-<app-beer-list-item></app-beer-list-item>
+<app-beer-list-item *ngFor="let item of items" [data]="item"></app-beer-list-item>

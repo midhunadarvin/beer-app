@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-beer-list',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./beer-list.component.css']
 })
 export class BeerListComponent implements OnInit {
-
+  @Input() items: Array<any>;
   constructor() { }
 
   ngOnInit() {

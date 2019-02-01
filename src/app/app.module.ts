@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { BeerModule } from './beer/beer.module';
+import { AppConfigModule } from './app-config.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BeerModule } from './beer/beer.module';
     BrowserModule,
     BrowserAnimationsModule,
     BeerModule,
-    SharedModule
+    SharedModule,
+    AppConfigModule
   ],
   providers: [],
   bootstrap: [AppComponent]
