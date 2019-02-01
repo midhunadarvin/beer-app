@@ -1,25 +1,31 @@
 <div class="container">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
+  <mat-card>
     <mat-card-content>
-      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
-        <div fxFlex="20">
-          <img fxFill src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        </div>
-        <div fxLayout="column" fxFlex="60" fxLayoutAlign="center center">
-          <div fxFill>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
+      <div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px">
+        <div fxLayout="column" fxFlex="15" flexLayoutAlign="center center">
+          <div fxLayout="row" >
+            <div>
+              <img class="ml3 mr3" width="40%" [src]="data?.image_url" alt="Photo of a Shiba Inu">
+            </div>
           </div>
         </div>
-        <div fxLayout="column" fxFlex="20" fxLayoutAlign="center center">
-            <button mat-raised-button color="primary">Get Random Beer</button>
-            <button mat-raised-button color="primary">Primary</button>
+
+        <div class="min-height-300" fxLayout="column" fxLayoutAlign="center start" fxFlex>
+          <div class="h2">
+            {{data?.name}}
           </div>
+          <div>
+            {{data?.description}}
+          </div>
+        </div>
+        <div class="min-height-300" fxLayout="column" fxFlex="20" fxLayoutAlign="center center">
+          <div class="mb3">
+            <button mat-raised-button color="primary" (click)="getRandomBeer()">Another Beer</button>
+          </div>
+          <div>
+            <button mat-raised-button color="primary">Random non-alcholic Beer</button>
+          </div>
+        </div>
       </div>
     </mat-card-content>
   </mat-card>

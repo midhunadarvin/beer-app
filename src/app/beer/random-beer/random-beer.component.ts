@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { BeerService } from '../beer.service';
 
 @Component({
   selector: 'app-random-beer',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./random-beer.component.css']
 })
 export class RandomBeerComponent implements OnInit {
-
-  constructor() { }
+  @Input() data;
+  constructor(private beerService: BeerService) { }
 
   ngOnInit() {
   }
 
+  getRandomBeer() {
+    this.beerService.getRandomBeer();
+  }
 }

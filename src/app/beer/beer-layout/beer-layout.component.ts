@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Beer } from '../models/beer';
 import { BeerService } from '../beer.service';
 @Component({
   selector: 'app-beer-layout',
@@ -6,14 +7,30 @@ import { BeerService } from '../beer.service';
   styleUrls: ['./beer-layout.component.css']
 })
 export class BeerLayoutComponent implements OnInit {
-  private beerList: any = [];
+  public beerList: Array<Beer> = [];
+  public randomBeer: Beer;
   constructor(private beerService: BeerService) { }
 
   ngOnInit() {
-    this.beerService.getBeersList()
-      .subscribe((response: any) => {
+    this.subscribeRandomBeer();
+    this.subscribeBeerList();
+    this.beerService.getBeersList();
+    this.beerService.getRandomBeer();
+  }
+
+  subscribeRandomBeer() {
+    this.beerService.randomBeerSubject
+      .subscribe((response: Array<Beer>) => {
+        this.randomBeer = response[0];
+      });
+  }
+
+  subscribeBeerList() {
+    this.beerService.beersListSubject
+      .subscribe((response: Array<Beer>) => {
         this.beerList = response;
       });
   }
+
 
 }
