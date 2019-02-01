@@ -1,0 +1,19 @@
+<mat-card class="mb3" fxLayout="row">
+  <div fxFlex="30" fxLayout="column" fxLayoutAlign="center center">
+    <mat-form-field fxFill>
+      <input matInput placeholder="Search" [type]="text">
+      <!-- <mat-icon matSuffix class="cursor-pointer">search</mat-icon> -->
+    </mat-form-field>
+  </div>
+
+  <div fxFlex="30" fxLayout="column" fxLayoutAlign="center start">
+    <mat-radio-group>
+      <mat-radio-button class="ml2" value="1">Name</mat-radio-button>
+      <mat-radio-button class="ml2" value="2">Description</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div fxFlex="40" fxLayout="column" fxLayoutAlign="center end">
+    <button  mat-raised-button color="primary">Search</button>
+  </div>
+</mat-card>

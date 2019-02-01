@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
+    MatRadioModule,
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
@@ -15,6 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     exports: [
         CommonModule,
         FlexLayoutModule,
+        MatRadioModule,
         MatInputModule,
         MatIconModule,
         MatCardModule,
