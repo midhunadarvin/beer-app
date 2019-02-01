@@ -13,4 +13,8 @@ export class BeerService {
   getBeersList() {
     return this.http.get(`${this.config.apiEndpoint}/beers`);
   }
+
+  getRandomBeer() {
+    return this.http.get(`${this.config.apiEndpoint}/beers/random`);
+  }
 }
