@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BeerSearchComponent } from './beer-search.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { BeerModule } from '../beer.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppConfigModule } from 'src/app/app-config.module';
 
 describe('BeerSearchComponent', () => {
   let component: BeerSearchComponent;
@@ -8,7 +12,12 @@ describe('BeerSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BeerSearchComponent ]
+      imports: [
+        BrowserAnimationsModule,
+        AppConfigModule,
+        SharedModule,
+        BeerModule
+      ]
     })
     .compileComponents();
   }));

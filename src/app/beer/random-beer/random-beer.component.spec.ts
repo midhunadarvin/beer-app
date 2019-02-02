@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RandomBeerComponent } from './random-beer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BeerModule } from '../beer.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AppConfigModule } from 'src/app/app-config.module';
 
 describe('RandomBeerComponent', () => {
   let component: RandomBeerComponent;
@@ -8,7 +12,7 @@ describe('RandomBeerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RandomBeerComponent ]
+      imports: [ BrowserAnimationsModule, SharedModule, AppConfigModule, BeerModule ]
     })
     .compileComponents();
   }));

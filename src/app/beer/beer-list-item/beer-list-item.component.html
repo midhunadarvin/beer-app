@@ -5,10 +5,10 @@
         <img class="thumbnail" *ngIf="data?.image_url" [src]="data?.image_url" alt="Photo of a Shiba Inu" >
       </div>
       <div fxFlex="90" fxLayout="column">
-        <div class="h2 mb2">{{data.name}}</div>
+        <div class="h2 mb2">{{data?.name}}</div>
         <div >
             <div class="h4 ellipsis">
-              {{ data.description }}
+              {{ data?.description }}
             </div>
         </div>
       </div>

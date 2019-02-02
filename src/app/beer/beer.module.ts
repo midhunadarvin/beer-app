@@ -8,13 +8,23 @@ import { BeerListItemComponent } from './beer-list-item/beer-list-item.component
 import { BeerLayoutComponent } from './beer-layout/beer-layout.component';
 
 @NgModule({
-  declarations: [RandomBeerComponent, BeerSearchComponent, BeerListComponent, BeerListItemComponent, BeerLayoutComponent],
+  declarations: [
+    RandomBeerComponent,
+    BeerSearchComponent,
+    BeerListComponent,
+    BeerListItemComponent,
+    BeerLayoutComponent
+  ],
   imports: [
     CommonModule,
     SharedModule
   ],
   exports: [
-    RandomBeerComponent, BeerSearchComponent, BeerListComponent, BeerListItemComponent, BeerLayoutComponent
+    RandomBeerComponent,
+    BeerSearchComponent,
+    BeerListComponent,
+    BeerListItemComponent,
+    BeerLayoutComponent
   ]
 })
 export class BeerModule { }

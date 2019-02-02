@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BeerListComponent } from './beer-list.component';
+import { BeerModule } from '../beer.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('BeerListComponent', () => {
   let component: BeerListComponent;
@@ -8,7 +10,7 @@ describe('BeerListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BeerListComponent ]
+      imports: [ BrowserAnimationsModule, BeerModule ]
     })
     .compileComponents();
   }));

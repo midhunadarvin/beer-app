@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import {
     MatRadioModule,
@@ -17,7 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
     declarations: [],
     imports: [
-        NgxSpinnerModule
+        ToastrModule.forRoot()
     ],
     exports: [
         CommonModule,
