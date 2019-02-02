@@ -16,4 +16,8 @@ export class RandomBeerComponent implements OnInit {
   getRandomBeer() {
     this.beerService.getRandomBeer();
   }
+
+  getRandomNonAlcoBeer() {
+    this.beerService.getRandomNonAlcoBeer();
+  }
 }

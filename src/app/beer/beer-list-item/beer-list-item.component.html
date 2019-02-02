@@ -2,12 +2,12 @@
   <mat-card class="example-card">
     <mat-card-content fxLayout="row" fxLayoutAlign="center center">
       <div fxFlex="10">
-        <img [src]="data.image_url" width="50%" alt="Photo of a Shiba Inu" >
+        <img class="thumbnail" *ngIf="data?.image_url" [src]="data?.image_url" alt="Photo of a Shiba Inu" >
       </div>
       <div fxFlex="90" fxLayout="column">
         <div class="h2 mb2">{{data.name}}</div>
         <div >
-            <div class="h4">
+            <div class="h4 ellipsis">
               {{ data.description }}
             </div>
         </div>

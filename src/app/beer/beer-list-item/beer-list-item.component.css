@@ -1,0 +1,12 @@
+.thumbnail {
+    width: 25%;
+    margin: 0 30%;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+  
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+}

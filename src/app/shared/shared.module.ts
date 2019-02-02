@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import {
     MatRadioModule,
@@ -14,8 +16,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [],
+    imports: [
+        NgxSpinnerModule
+    ],
     exports: [
         CommonModule,
+        FormsModule,
+        NgxSpinnerModule,
         HttpClientModule,
         FlexLayoutModule,
         MatRadioModule,
