@@ -1,8 +1,16 @@
 # BeerApp
 
+This is a web application which lists beers from [punkapi](https://punkapi.com/documentation/v2). This application is build
+using Angular 7.
+
+## Things that I would like to add, but I am constrained by time.
+- Pagination for the beer list
+- Sorting functionality based on ABV
+- More unit tests
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
 ## Build
 
