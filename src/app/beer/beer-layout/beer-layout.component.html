@@ -1,11 +1,14 @@
 <div fxLayout="row" fxLayoutAlign="center">
     <div fxLayout="column" fxFlex="80">
-      <app-random-beer class="mt3 mb3" [data]="randomBeer"></app-random-beer>
+      <!-- <app-random-beer class="mt3 mb3" [data]="randomBeer"></app-random-beer> -->
   
-      <app-beer-search></app-beer-search>
+      <!-- <app-beer-search></app-beer-search> -->
   
       <div class="mb2">
-        <h1>Search Results</h1>
+        <div style="display: inline-block">
+          <h1>Beers List</h1>
+        </div>
+        <button style="float: right;margin-top: 1rem;" mat-raised-button color="primary">Cart ({{beerService.cartItems.length}})</button>
       </div>
   
       <app-beer-list [items]="beerList"></app-beer-list>

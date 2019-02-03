@@ -7,22 +7,13 @@ import { BeerService } from '../beer.service';
   styleUrls: ['./beer-layout.component.css']
 })
 export class BeerLayoutComponent implements OnInit {
-  public beerList: Array<Beer> = [];
+  public beerList: Array<Beer>;
   public randomBeer: Beer;
-  constructor(private beerService: BeerService) { }
+  constructor(public beerService: BeerService) { }
 
   ngOnInit() {
-    this.subscribeRandomBeer();
     this.subscribeBeerList();
     this.beerService.getBeersList();
-    this.beerService.getRandomBeer();
-  }
-
-  subscribeRandomBeer() {
-    this.beerService.randomBeerSubject
-      .subscribe((response: Beer) => {
-        this.randomBeer = response;
-      });
   }
 
   subscribeBeerList() {

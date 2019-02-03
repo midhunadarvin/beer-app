@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {
     MatRadioModule,
     MatInputModule,
@@ -24,6 +25,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         CommonModule,
         FormsModule,
         NgxSpinnerModule,
+        NgxDatatableModule,
         HttpClientModule,
         FlexLayoutModule,
         MatRadioModule,

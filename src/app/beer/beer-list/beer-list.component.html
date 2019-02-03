@@ -1,1 +1,7 @@
-<app-beer-list-item *ngFor="let item of items" [data]="item"></app-beer-list-item>
+<!-- <app-beer-list-item *ngFor="let item of items" [data]="item"></app-beer-list-item> -->
+<div class="mb3">
+    <ngx-datatable *ngIf="items" class="material" [rows]="items" [columns]="columns" [columnMode]="'force'"
+        [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [selected]="selected" [selectionType]="'checkbox'"
+        [selectAllRowsOnPage]="false" (select)='onSelect($event)'>
+    </ngx-datatable>
+</div>
