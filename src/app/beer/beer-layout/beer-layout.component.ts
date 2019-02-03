@@ -31,12 +31,4 @@ export class BeerLayoutComponent implements OnInit {
         this.beerList = response;
       });
   }
-
-  onSearch(event) {
-    if (event.searchType === 'name') {
-      this.beerService.getBeersWithName(event.searchText);
-    } else if (event.searchType === 'description') {
-      this.beerService.getBeersWithDescription(event.searchText);
-    }
-  }
 }

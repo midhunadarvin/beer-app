@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { BeerService } from '../beer.service';
 
 @Component({
   selector: 'app-beer-search',
@@ -9,16 +10,16 @@ export class BeerSearchComponent implements OnInit {
   public searchType = 'name';
   public searchText: string;
 
-  @Output() searchClick = new EventEmitter<any>();
-  constructor() { }
+  constructor(private beerService: BeerService) { }
 
   ngOnInit() {
   }
 
   onSearch() {
-    this.searchClick.emit({
-      searchText: this.searchText,
-      searchType: this.searchType
-    });
+    if (this.searchType === 'name') {
+      this.beerService.getBeersWithName(this.searchText);
+    } else if (this.searchType === 'description') {
+      this.beerService.getBeersWithDescription(this.searchText);
+    }
   }
 }
