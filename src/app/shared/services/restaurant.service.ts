@@ -1,11 +1,11 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject, forkJoin, of, interval } from 'rxjs';
-import { APP_CONFIG, AppConfig } from '../app-config.module';
+import { Subject, forkJoin } from 'rxjs';
+import { APP_CONFIG, AppConfig } from '../../app-config.module';
 @Injectable({
   providedIn: 'root'
 })
-export class BeerService {
+export class RestaurantService {
   public randomBeerSubject = new Subject();
   public beersListSubject = new Subject();
   constructor(

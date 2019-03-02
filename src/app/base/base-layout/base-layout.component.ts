@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Beer } from '../models/beer';
-import { BeerService } from '../beer.service';
+import { RestaurantService } from '../../shared/services/restaurant.service';
 @Component({
-  selector: 'app-beer-layout',
-  templateUrl: './beer-layout.component.html',
-  styleUrls: ['./beer-layout.component.css']
+  selector: 'app-base-layout',
+  templateUrl: './base-layout.component.html',
+  styleUrls: ['./base-layout.component.css']
 })
-export class BeerLayoutComponent implements OnInit {
+export class BaseLayoutComponent implements OnInit {
   public beerList: Array<Beer> = [];
   public randomBeer: Beer;
-  constructor(private beerService: BeerService) { }
+  constructor(private beerService: RestaurantService) { }
 
   ngOnInit() {
     this.subscribeRandomBeer();

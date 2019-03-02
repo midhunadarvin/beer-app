@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BeerService } from '../beer.service';
+import { RestaurantService } from '../../shared/services/restaurant.service';
 
 @Component({
   selector: 'app-random-beer',
@@ -8,7 +8,7 @@ import { BeerService } from '../beer.service';
 })
 export class RandomBeerComponent implements OnInit {
   @Input() data;
-  constructor(private beerService: BeerService) { }
+  constructor(private beerService: RestaurantService) { }
 
   ngOnInit() {
   }

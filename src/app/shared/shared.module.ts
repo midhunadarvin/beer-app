@@ -14,11 +14,30 @@ import {
     MatCardModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ListComponent } from './components/list/list.component';
+import { ListItemComponent } from './components/list-item/list-item.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
-    declarations: [],
+    declarations: [
+        ListItemComponent,
+        ListComponent,
+        SearchComponent
+    ],
     imports: [
-        ToastrModule.forRoot()
+        ToastrModule.forRoot(),
+        CommonModule,
+        FormsModule,
+        NgxSpinnerModule,
+        HttpClientModule,
+        FlexLayoutModule,
+        MatRadioModule,
+        MatInputModule,
+        MatIconModule,
+        MatCardModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatFormFieldModule,
     ],
     exports: [
         CommonModule,
@@ -32,7 +51,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         MatCardModule,
         MatButtonModule,
         MatToolbarModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        ListComponent,
+        ListItemComponent,
+        SearchComponent
     ],
     providers: [],
 })

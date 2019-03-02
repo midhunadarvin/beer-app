@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BeerListComponent } from './beer-list.component';
-import { BeerModule } from '../beer.module';
+import { ListComponent } from './list.component';
+import { BaseModule } from '../../../base/base.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-describe('BeerListComponent', () => {
-  let component: BeerListComponent;
-  let fixture: ComponentFixture<BeerListComponent>;
+describe('ListComponent', () => {
+  let component: ListComponent;
+  let fixture: ComponentFixture<ListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ BrowserAnimationsModule, BeerModule ]
+      imports: [ BrowserAnimationsModule, BaseModule ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BeerListComponent);
+    fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
     component.items = [
       {

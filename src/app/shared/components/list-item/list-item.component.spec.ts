@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BeerListItemComponent } from './beer-list-item.component';
-import { SharedModule } from '../../shared/shared.module';
+import { BeerListItemComponent } from './list-item.component';
+import { SharedModule } from '../../shared.module';
 
 describe('BeerListItemComponent', () => {
   let component: BeerListItemComponent;

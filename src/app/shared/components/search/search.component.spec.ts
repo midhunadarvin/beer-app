@@ -3,17 +3,17 @@ import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppConfigModule } from 'src/app/app-config.module';
 
-import { BeerSearchComponent } from './beer-search.component';
+import { SearchComponent } from './search.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { BeerModule } from '../beer.module';
+import { BaseModule } from '../../../base/base.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BeerService } from '../beer.service';
+import { RestaurantService } from '../../services/restaurant.service';
 
 describe('BeerSearchComponent', () => {
-  let component: BeerSearchComponent;
-  let fixture: ComponentFixture<BeerSearchComponent>;
+  let component: SearchComponent;
+  let fixture: ComponentFixture<SearchComponent>;
   let debugElement: DebugElement;
-  let beerService: BeerService;
+  let beerService: RestaurantService;
   let getBeersWithNameSpy;
   let getBeersWithDescriptionSpy;
 
@@ -23,18 +23,18 @@ describe('BeerSearchComponent', () => {
         BrowserAnimationsModule,
         AppConfigModule,
         SharedModule,
-        BeerModule
+        BaseModule
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BeerSearchComponent);
+    fixture = TestBed.createComponent(SearchComponent);
     debugElement = fixture.debugElement;
     component = fixture.componentInstance;
 
-    beerService = debugElement.injector.get(BeerService);
+    beerService = debugElement.injector.get(RestaurantService);
     getBeersWithNameSpy = spyOn(beerService, 'getBeersWithName').and.callThrough();
     getBeersWithDescriptionSpy = spyOn(beerService, 'getBeersWithDescription').and.callThrough();
 
