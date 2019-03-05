@@ -1,5 +1,5 @@
 {
-  "name": "beer-app",
+  "name": "angular-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,8 +22,11 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "angular-star-rating": "^4.0.0-beta.3",
     "basscss": "^8.0.2",
     "core-js": "^2.5.4",
+    "css-star-rating": "^1.2.4",
+    "csvtojson": "^2.0.8",
     "ngx-spinner": "^7.0.0",
     "ngx-toastr": "^9.1.1",
     "rxjs": "~6.3.3",

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-list-item',
@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListItemComponent implements OnInit {
   @Input() data: any;
+  @Input() layoutTemplate: TemplateRef<any>;
   constructor() { }
 
   ngOnInit() {

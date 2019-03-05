@@ -1,18 +1,35 @@
-<mat-card class="mb3" fxLayout="row">
-  <div fxFlex="30" fxLayout="column" fxLayoutAlign="center center">
-    <mat-form-field fxFill>
-      <input matInput placeholder="Search" type="text" [(ngModel)]="searchText">
-    </mat-form-field>
+<mat-card class="mb3">
+  <mat-card-title *ngIf="title">
+    {{title}}
+  </mat-card-title>
+  <div fxLayout="row">
+    <div fxFlex="50" fxLayout="column" fxLayoutAlign="center center">
+      <form fxFill>
+        <mat-form-field fxFill>
+          <input placeholder="Search" type="text" aria-label="Number" matInput [formControl]="searchControl"
+            [matAutocomplete]="auto" [(ngModel)]="searchText" name="searchControl">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option.Name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+
+    <div fxFlex="30" fxLayout="column" fxLayoutAlign="center start">
+      <mat-radio-group [(ngModel)]="searchType">
+        <mat-radio-button *ngFor="let model of searchModels" class="ml2" [value]="model.value">{{model.name}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div fxFlex="10" fxLayout="column" fxLayoutAlign="center end">
+      <button class="search-button" mat-raised-button color="primary" (click)="clearSearch()"
+        [disabled]="!searchMode">Clear</button>
+    </div>
+    <div fxFlex="10" fxLayout="column" fxLayoutAlign="center end">
+      <button class="search-button" mat-raised-button color="primary" (click)="onSearch()">Search</button>
+    </div>
   </div>
 
-  <div fxFlex="30" fxLayout="column" fxLayoutAlign="center start">
-    <mat-radio-group [(ngModel)]="searchType">
-      <mat-radio-button class="ml2" value="name">Name</mat-radio-button>
-      <mat-radio-button class="ml2" value="description">Description</mat-radio-button>
-    </mat-radio-group>
-  </div>
-
-  <div fxFlex="40" fxLayout="column" fxLayoutAlign="center end">
-    <button class="search-button" mat-raised-button color="primary" (click)="onSearch()">Search</button>
-  </div>
 </mat-card>

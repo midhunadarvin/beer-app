@@ -1,1 +1,16 @@
-<app-list-item *ngFor="let item of items" [data]="item"></app-list-item>
+<mat-paginator class="mb1"
+    [length]="totalItems"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[25, 50, 100]"
+    (page)="onPageChange($event)">
+</mat-paginator>
+<div fxLayout="row wrap" fxLayoutAlign="space-between start">
+    <ng-container *ngFor="let item of items">
+        <app-list-item fxFlex="33" [data]="item" [layoutTemplate]="itemTemplate"></app-list-item>
+    </ng-container>
+</div>
+<mat-paginator [length]="totalItems"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="[25, 50, 100]"
+              (page)="onPageChange($event)">
+</mat-paginator>

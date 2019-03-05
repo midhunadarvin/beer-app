@@ -7,28 +7,95 @@ import { RestaurantService } from '../../shared/services/restaurant.service';
   styleUrls: ['./base-layout.component.css']
 })
 export class BaseLayoutComponent implements OnInit {
-  public beerList: Array<Beer> = [];
+  public restaurantList: Array<any> = [];
+  public searchResultList: Array<any> = [];
+  public searchResultListMaster: Array<any> = [];
+  public restaurantListMaster: Array<any> = [];
+  public totalItems: number;
+  public pageSize = 25;
+  public searchMode = false;
+  public searchModels = [
+    {
+      name: 'Name',
+      value: 'name'
+    },
+    {
+      name: 'Cuisine Style',
+      value: 'cuisine'
+    }
+  ];
   public randomBeer: Beer;
-  constructor(private beerService: RestaurantService) { }
+  constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit() {
-    this.subscribeRandomBeer();
-    this.subscribeBeerList();
-    this.beerService.getBeersList();
-    this.beerService.getRandomBeer();
+    this.subscribeRestaurantList();
+    this.restaurantService.getRestaurantsList();
   }
 
-  subscribeRandomBeer() {
-    this.beerService.randomBeerSubject
-      .subscribe((response: Beer) => {
-        this.randomBeer = response;
-      });
-  }
-
-  subscribeBeerList() {
-    this.beerService.beersListSubject
+  public subscribeRestaurantList() {
+    this.restaurantService.restaurantsListSubject
       .subscribe((response: Array<Beer>) => {
-        this.beerList = response;
+        this.totalItems = response.length;
+        this.restaurantListMaster = response;
+        this.restaurantList = this.restaurantListMaster.slice(0, this.pageSize).map((item) => {
+          item['Cuisine Style'] = item['Cuisine Style'].substring(1, item['Cuisine Style'].length - 1);
+          item['Cuisine Style'] = item['Cuisine Style'].split(', ');
+          return item;
+        });
       });
+  }
+
+  public onSearch(event) {
+    if (event.text) {
+      if (event.type === 'name') {
+        this.searchMode = true;
+        this.searchResultListMaster = this.restaurantListMaster.filter((item) => {
+          return item.Name.includes(event.text);
+        });
+        this.searchResultList = this.searchResultListMaster.slice(0, 25).map((item) => {
+          if (typeof item['Cuisine Style'] === 'string') {
+            item['Cuisine Style'] = item['Cuisine Style'].substring(1, item['Cuisine Style'].length - 1);
+            item['Cuisine Style'] = item['Cuisine Style'].split(', ');
+          }
+          return item;
+        });
+      } else if (event.type === 'cuisine') {
+        this.searchMode = true;
+        this.searchResultListMaster = this.restaurantListMaster.filter((item) => {
+          if (typeof item['Cuisine Style'] === 'string') {
+            item['Cuisine Style'] = item['Cuisine Style'].substring(1, item['Cuisine Style'].length - 1);
+            item['Cuisine Style'] = item['Cuisine Style'].split(', ');
+          }
+          return item['Cuisine Style'].indexOf('\'' + event.text  + '\'') > -1;
+        });
+        this.searchResultList = this.searchResultListMaster.slice(0, 25);
+      }
+
+    }
+  }
+
+  public onClearSearch() {
+    this.searchMode = false;
+  }
+
+  public onPageChange(event) {
+    this.pageSize = event.pageSize;
+    const startIndex = event.pageIndex * event.pageSize;
+    const endIndex = event.pageIndex * event.pageSize + event.pageSize;
+    this.restaurantList = this.restaurantListMaster.slice(startIndex, endIndex).map((item) => {
+      item['Cuisine Style'] = item['Cuisine Style'].substring(1, item['Cuisine Style'].length - 1);
+      item['Cuisine Style'] = item['Cuisine Style'].split(', ');
+      return item;
+    });
+  }
+
+  public onSearchPageChange(event) {
+    const startIndex = event.pageIndex * event.pageSize;
+    const endIndex = event.pageIndex * event.pageSize + event.pageSize;
+    this.searchResultList = this.searchResultListMaster.slice(startIndex, endIndex).map((item) => {
+      item['Cuisine Style'] = item['Cuisine Style'].substring(1, item['Cuisine Style'].length - 1);
+      item['Cuisine Style'] = item['Cuisine Style'].split(', ');
+      return item;
+    });
   }
 }
