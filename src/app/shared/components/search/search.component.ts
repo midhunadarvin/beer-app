@@ -21,16 +21,6 @@ export class SearchComponent implements OnInit {
   @Output() public clearCallback = new EventEmitter<any>();
 
   public ngOnInit() {
-    this.filteredOptions = this.searchControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
-  }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.options.slice(0, 500).filter(option => option.Name.toLowerCase().includes(filterValue));
   }
 
   onSearch() {
@@ -41,7 +31,6 @@ export class SearchComponent implements OnInit {
         text: this.searchText
       });
     }
-
   }
 
   clearSearch() {

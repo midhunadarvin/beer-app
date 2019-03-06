@@ -10,7 +10,7 @@ export class ListComponent implements OnInit {
   @Input() items: Array<any>;
   @Input() totalItems: number;
   @Input() pageSize: number;
-  @ContentChild('listItemTemplate') itemTemplate: TemplateRef<ElementRef>;
+  @Input() template: TemplateRef<ElementRef>;
   @Output() pageChange = new EventEmitter();
   constructor() { }
 

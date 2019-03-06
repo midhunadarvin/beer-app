@@ -1,82 +1,33 @@
 <div fxLayout="row" fxLayoutAlign="center">
   <div class="p2" fxLayout="column" fxFlex="80">
 
-    <app-search [title]="'Search Restaurants'" [searchModels]="searchModels" (searchCallback)="onSearch($event)"
+    <app-search [title]="'Search ' + listTitle" [searchModels]="searchModels" (searchCallback)="onSearch($event)"
       (clearCallback)="onClearSearch($event)" [options]="restaurantListMaster">
     </app-search>
 
     <div class="h1 mb2">
-      {{ (searchMode) ? 'Search Results' : 'Restaurants' }}
+      {{ (searchMode) ? 'Search Results' : listTitle }}
     </div>
     <div *ngIf="searchMode && !searchResultList.length" fxLayout="row" fxLayoutAlign="center center">
       <div class="h1">No Results Found</div>
     </div>
-    <app-list *ngIf="searchMode && searchResultList.length" [items]="searchResultList" [pageSize]="pageSize"
-      [totalItems]="searchResultListMaster.length" (pageChange)="onSearchPageChange($event)">
-      <ng-template #listItemTemplate let-data="data">
-        <div class="mb1">
-          <mat-card class="item-card">
-            <mat-card-header>
-              <mat-card-title>{{data?.Name}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>
-                City: {{data?.City}}
-              </p>
-              <p>
-                Number of Reviews: {{data['Number of Reviews']}}
-              </p>
-              <p>
-                Ranking: {{ data.Ranking }}
-              </p>
-              <p>
-                <span class="inline-flex">
-                  Rating: <star-rating [starType]="'svg'" [hoverEnabled]="false" [rating]="data.Rating"></star-rating>
-                </span>
-              </p>
-              <div fxLayout="row wrap" fxLayoutAlign="start start">
-                <span class="p1 mr1 tooltiptext" *ngFor="let item of data['Cuisine Style']">
-                  {{item.substring(1, item.length - 1)}}
-                </span>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </div>
-      </ng-template>
-    </app-list>
 
-    <app-list *ngIf="!searchMode" [items]="restaurantList" [pageSize]="pageSize" [totalItems]="totalItems"
-      (pageChange)="onPageChange($event)">
-      <ng-template #listItemTemplate let-data="data">
-        <div class="mb1">
-          <mat-card class="item-card">
-            <mat-card-header>
-              <mat-card-title>{{data?.Name}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>
-                City: {{data?.City}}
-              </p>
-              <p>
-                Number of Reviews: {{data['Number of Reviews']}}
-              </p>
-              <p>
-                Ranking: {{ data.Ranking }}
-              </p>
-              <p>
-                <span class="inline-flex">
-                  Rating: <star-rating [starType]="'svg'" [hoverEnabled]="false" [rating]="data.Rating"></star-rating>
-                </span>
-              </p>
-              <div fxLayout="row wrap" fxLayoutAlign="start start">
-                <span class="p1 mr1 tooltiptext" *ngFor="let item of data['Cuisine Style']">
-                  {{item.substring(1, item.length - 1)}}
-                </span>
-              </div>
-            </mat-card-content>
-          </mat-card>
-        </div>
-      </ng-template>
-    </app-list>
+    <app-list [items]="repositoriesList" [pageSize]="pageSize" [totalItems]="totalItems"
+      (pageChange)="onPageChange($event)" [template]="listItemTemplate"></app-list>
   </div>
 </div>
+
+<ng-template #listItemTemplate let-data="data">
+  <div class="mb1">
+    <mat-card class="item-card">
+      <mat-card-header>
+        <mat-card-title class="ellipsis">{{data?.name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Owner: {{data?.owner.login}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-template>

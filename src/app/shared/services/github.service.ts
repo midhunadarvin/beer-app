@@ -6,19 +6,25 @@ import * as csv from 'csvtojson';
 @Injectable({
   providedIn: 'root'
 })
-export class RestaurantService {
-  public randomBeerSubject = new Subject();
-  public restaurantsListSubject = new Subject();
+export class GithubService {
+  public listSubject = new Subject();
   constructor(
     private http: HttpClient,
     @Inject(APP_CONFIG) private config: AppConfig) { }
 
-  getRestaurantsList() {
+  public getRespositories() {
+    this.http.get(this.config.apiEndpoint + '/repositories')
+      .subscribe((response: any) => {
+          this.listSubject.next(response);
+      });
+  }
+
+  public getFromCsv() {
     this.http.get('/assets/restaurants.csv', { responseType: 'text' })
       .subscribe((response: any) => {
         csv().fromString(response)
           .then((csvRow) => {
-            this.restaurantsListSubject.next(csvRow);
+            this.listSubject.next(csvRow);
           });
       });
   }

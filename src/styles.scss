@@ -6,9 +6,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 .inline-flex {
   display: inline-flex !important;
 }
-mat-card.item-card {
-    height: 250px;
-    max-height: 250px;
+
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .mat-card-header-text {

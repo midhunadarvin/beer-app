@@ -3,7 +3,7 @@
     {{title}}
   </mat-card-title>
   <div fxLayout="row">
-    <div fxFlex="50" fxLayout="column" fxLayoutAlign="center center">
+    <div fxFlex="55" fxLayout="column" fxLayoutAlign="center center">
       <form fxFill>
         <mat-form-field fxFill>
           <input placeholder="Search" type="text" aria-label="Number" matInput [formControl]="searchControl"
@@ -23,12 +23,10 @@
         </mat-radio-button>
       </mat-radio-group>
     </div>
-    <div fxFlex="10" fxLayout="column" fxLayoutAlign="center end">
+    <div fxFlex="15" fxLayout="row" fxLayoutAlign="space-around center">
+      <button class="search-button" mat-raised-button color="primary" (click)="onSearch()">Search</button>
       <button class="search-button" mat-raised-button color="primary" (click)="clearSearch()"
         [disabled]="!searchMode">Clear</button>
-    </div>
-    <div fxFlex="10" fxLayout="column" fxLayoutAlign="center end">
-      <button class="search-button" mat-raised-button color="primary" (click)="onSearch()">Search</button>
     </div>
   </div>
 

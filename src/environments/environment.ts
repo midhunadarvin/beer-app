@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiEndpoint: 'https://api.punkapi.com/v2'
+  apiEndpoint: 'https://api.github.com'
 };
 
 /*
